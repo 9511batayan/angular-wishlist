@@ -1,0 +1,9 @@
+<h2>一覧</h2>
+<ul class="display-wishlist">
+    <li *ngFor="let item of wishList"
+    [class.selected]="item === selectedItem"
+    (click)="onClick(item)">
+    {{item.name}}
+    </li>
+</ul>
+<app-item-detail [item]="selectedItem"></app-item-detail>

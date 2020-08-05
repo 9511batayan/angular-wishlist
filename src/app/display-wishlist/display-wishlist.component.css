@@ -1,0 +1,13 @@
+.display-wishlist {
+    margin: 0 0 2em 0;
+    list-style-type: none;
+    padding: 0;
+    width: 15em;
+  }
+
+  .save-form{
+    padding: 16px 48px;
+    border: 1px solid #D9DBDE;
+    border-radius: 10px;
+    background-color: #FFFFFF;
+  }

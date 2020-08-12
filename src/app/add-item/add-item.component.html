@@ -1,7 +1,7 @@
 <div>
     <h2>登録名とURLを追加！</h2>
-    <input [(ngModel)]="item.name" placeholder="name"/>
-    <input [(ngModel)]="item.url" placeholder="URL"/>
+    <input type="text" [(ngModel)]="item.name" placeholder="name"/>
+    <input type="url" [(ngModel)]="item.url" placeholder="URL"/>
     <button (click)="registerItem(item)">登録</button>
-    <button (click)="goHome(item)">戻る</button>
+    <button (click)="goHome()">戻る</button>
 </div>

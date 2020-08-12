@@ -10,18 +10,20 @@ import { ItemService } from '../item.service';
 })
 export class AddItemComponent implements OnInit {
   item: Item;
-  constructor(private location: Location) { }
+  wishlist: Item[];
+  constructor(private location: Location,
+              private itemService: ItemService) { }
 
   ngOnInit(): void {
   }
 
-  addItem(): void {
-
-  }
-
-  registerItem(item: Item): void {
+  registerItem(newitem: Item): void {
     // new item -> wishlist push
 //    this.router.navigate([]);
+    if(!newitem) return ;
+    this.itemService.pushItem(newitem)
+      .subscribe(item => {this.wishlist.push(newitem)});
+    this.location.back();
   }
   
   goHome(): void {

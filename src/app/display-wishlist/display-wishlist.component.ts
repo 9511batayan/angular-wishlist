@@ -29,4 +29,9 @@ export class DisplayWishlistComponent implements OnInit {
     this.itemService.getWishList()
     .subscribe(wishList => this.wishList = wishList);
   }
+
+  delete(item: Item): void {
+    this.wishList = this.wishList.filter(h => h !== item);
+    this.itemService.deleteItem(item).subscribe();
+  }
 }

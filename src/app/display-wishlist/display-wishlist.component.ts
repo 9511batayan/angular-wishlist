@@ -8,26 +8,38 @@ import { ItemService } from '../item.service';
   styleUrls: ['./display-wishlist.component.css']
 })
 export class DisplayWishlistComponent implements OnInit {
-
+  newitem: Item={name:"",url:"http://"};
   wishList: Item[];
   selectedItem: Item;
+  isOpenNewItemMenu: boolean = false;
   
   constructor(private itemService: ItemService) { }
 
   ngOnInit(): void {
     this.getWishList();
   }
-/*
-  addWishData(data: Item):void{
-  }*/
 
-  onClick(item: Item): void{
+  onClick(): void {
+    this.isOpenNewItemMenu = true;
+    this.newitem.name="";
+  }
+
+  onItemDetail(item: Item): void{
     this.selectedItem = item;
   }
 
   getWishList(): void {
     this.itemService.getWishList()
     .subscribe(wishList => this.wishList = wishList);
+  }
+
+  registerItem(): void {
+    this.itemService.pushItem(this.newitem)
+    .subscribe(newitem => {this.wishList.push(newitem);});
+  }
+
+  onClose(): void {
+    this.isOpenNewItemMenu = false;
   }
 
   delete(item: Item): void {

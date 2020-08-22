@@ -26,14 +26,15 @@ export class ItemService {
   // 新しいアイテムを登録する
   pushItem(item: Item): Observable<Item> {
     return this.http.post<Item>(this.wishlistUrl, item, this.httpOptions).pipe(
-      catchError(this.handleError<Item>('pushItem'))
+      catchError(this.handleError<Item>('pushItem',item))
     );
   }
 
   /** DELETE: サーバーからアイテムを削除**/
   deleteItem(item: Item): Observable<Item> {
     return this.http.delete<Item>(this.wishlistUrl,this.httpOptions)
-    .pipe(catchError(this.handleError<Item>('deleteItem')));
+    .pipe(
+      catchError(this.handleError<Item>('deleteItem')));
   }
 
   /**
@@ -53,6 +54,6 @@ export class ItemService {
 
     // 空の結果を返して、アプリを持続可能にする
     return of(result as T);
-  };
-}
+    };
+  }
 }

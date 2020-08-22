@@ -1,7 +1,16 @@
+<nav>
+   <button >新規</button>
+</nav>
+<h1>登録名とURLを追加</h1>
 <div>
-    <h2>登録名とURLを追加！</h2>
-    <input type="text" [(ngModel)]="item.name" placeholder="name"/>
-    <input type="url" [(ngModel)]="item.url" placeholder="URL"/>
-    <button (click)="registerItem(item)">登録</button>
-    <button (click)="goHome()">戻る</button>
+    <label>名前:
+        <input [(ngModel)]=item.name placeholder="name"/>
+    </label>
 </div>
+<div>
+    <label>URL:
+        <input type="url" [(ngModel)]=item.url placeholder="URL"/>
+    </label> 
+</div>
+<button (click)="registerItem()">登録</button>
+<button (click)="goHome()">戻る</button>

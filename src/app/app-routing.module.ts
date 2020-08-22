@@ -5,8 +5,7 @@ import { AddItemComponent } from './add-item/add-item.component';
 
 const routes: Routes = [
   { path: '', redirectTo: '/wishlist', pathMatch: 'full' },
-  {path: 'wishlist', component: DisplayWishlistComponent},
-  {path: 'register', component: AddItemComponent}
+  {path: 'wishlist', component: DisplayWishlistComponent}
 ];
 
 @NgModule({

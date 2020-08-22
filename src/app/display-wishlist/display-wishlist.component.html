@@ -1,11 +1,29 @@
+<div>
+    <button (click)=onClick()>新規</button>
+</div>
+ <div *ngIf="isOpenNewItemMenu" >
+    <div>
+        <label>名前:
+            <input [(ngModel)]=newitem.name placeholder="name"/>
+        </label>
+    </div>
+    <div>
+        <label>URL:
+            <input type="url" [(ngModel)]=newitem.url placeholder="URL"/>
+        </label>
+    </div>
+    <button class="btn-register" (click)="registerItem()">登録</button>
+    <button (click)="onClose()">閉じる</button>
+</div>
+
 <h2>一覧</h2>
 <ul class="wishlist">
     <li *ngFor="let item of wishList"
     [class.selected]="item === selectedItem"
-    (click)="onClick(item)">
+    (click)="onItemDetail(item)">
     {{item.name}}
     <button class="delete" title="delete item"
-    (click)="delete(item)">x</button>
+    (click)="delete(item)">✕</button>
     </li>
 </ul>
 <app-item-detail [item]="selectedItem"></app-item-detail>

@@ -9,21 +9,19 @@ import { ItemService } from '../item.service';
   styleUrls: ['./add-item.component.css']
 })
 export class AddItemComponent implements OnInit {
-  item: Item;
-  wishlist: Item[];
+  item: Item={name:"",url:"http://"};
+  wishList: Item[] = [];
   constructor(private location: Location,
               private itemService: ItemService) { }
 
   ngOnInit(): void {
   }
 
-  registerItem(newitem: Item): void {
-    // new item -> wishlist push
-//    this.router.navigate([]);
-    if(!newitem) return ;
-    this.itemService.pushItem(newitem)
-      .subscribe(item => {this.wishlist.push(newitem)});
-    this.location.back();
+  registerItem(): void {                                                                                                                                                                                                                            
+    if(!this.item.name){ return ;}
+    this.itemService.pushItem(this.item)
+      .subscribe(item => {this.wishList.push(item);
+      });
   }
   
   goHome(): void {

@@ -8,9 +8,7 @@ import { ItemService } from '../item.service';
   styleUrls: ['./display-wishlist.component.css']
 })
 export class DisplayWishlistComponent implements OnInit {
-  newitem: Item={name:"",url:"http://"};
-  wishList: Item[];
-  selectedItem: Item;
+  wishList: Item[] = [];
   isOpenNewItemMenu: boolean = false;
   
   constructor(private itemService: ItemService) { }
@@ -21,21 +19,18 @@ export class DisplayWishlistComponent implements OnInit {
 
   onClick(): void {
     this.isOpenNewItemMenu = true;
-    this.newitem.name="";
   }
-
-  onItemDetail(item: Item): void{
-    this.selectedItem = item;
-  }
-
+  
   getWishList(): void {
     this.itemService.getWishList()
     .subscribe(wishList => this.wishList = wishList);
   }
 
-  registerItem(): void {
-    this.itemService.pushItem(this.newitem)
+  registerItem(name:String, url:String): void {
+    if(!name){return ;}
+    this.itemService.pushItem({name,url} as Item)
     .subscribe(newitem => {this.wishList.push(newitem);});
+    this.onClose();
   }
 
   onClose(): void {

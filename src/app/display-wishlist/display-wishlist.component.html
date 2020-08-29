@@ -4,26 +4,26 @@
  <div *ngIf="isOpenNewItemMenu" >
     <div>
         <label>名前:
-            <input [(ngModel)]=newitem.name placeholder="name"/>
+            <input #itemname/>
         </label>
     </div>
     <div>
         <label>URL:
-            <input type="url" [(ngModel)]=newitem.url placeholder="URL"/>
+            <input type="url" #itemurl placeholder="http://"/>
         </label>
     </div>
-    <button class="btn-register" (click)="registerItem()">登録</button>
+    <button class="btn-register" (click)="registerItem(itemname.value, itemurl.value);
+    itemname.value='';itemurl.value=''" >登録</button>
     <button (click)="onClose()">閉じる</button>
 </div>
 
 <h2>一覧</h2>
 <ul class="wishlist">
-    <li *ngFor="let item of wishList"
-    [class.selected]="item === selectedItem"
-    (click)="onItemDetail(item)">
-    {{item.name}}
+    <li *ngFor="let item of wishList">
+        <a routerLink="/detail/{{item.id}}">
+            {{item.name}}
+        </a>
     <button class="delete" title="delete item"
     (click)="delete(item)">✕</button>
     </li>
 </ul>
-<app-item-detail [item]="selectedItem"></app-item-detail>

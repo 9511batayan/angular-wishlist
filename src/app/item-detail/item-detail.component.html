@@ -1,19 +1,23 @@
-<div *ngIf="item">
+<div *ngIf="item" class="detail">
     <h2>{{item.name}} Details</h2>
     <div *ngIf="isEditItem; then thenBlockA else elseBlockB"></div>
         <ng-template #thenBlockA>
             <div>
                 <input [(ngModel)]="item.name"/>
             </div>
+            <div>
+                <input [(ngModel)]="item.url"/>
+            </div>
         </ng-template>
         <ng-template #elseBlockB>
             <div>
                 {{item.name}}
             </div>
+            <div>
+                <a href={{item.url}} target="_blank">{{item.url}}</a>
+            </div>
         </ng-template>
-    <div>
-        <a href={{item.url}} target="_blank">{{item.url}}</a>
-    </div>
+    
     <button (click)="goBack()">戻る</button>
     <div *ngIf="isEditItem; then thenBlock_save else elseBlock_edit"></div>
     <ng-template #thenBlock_save>

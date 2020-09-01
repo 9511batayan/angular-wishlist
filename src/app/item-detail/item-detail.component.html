@@ -1,7 +1,7 @@
 <div *ngIf="item" class="detail">
-    <h2>{{item.name}} Details</h2>
     <div *ngIf="isEditItem; then thenBlockA else elseBlockB"></div>
         <ng-template #thenBlockA>
+            <h2>{{item.name}} Edit</h2>
             <div>
                 <input [(ngModel)]="item.name"/>
             </div>
@@ -10,6 +10,7 @@
             </div>
         </ng-template>
         <ng-template #elseBlockB>
+            <h2>{{item.name}} Details</h2>
             <div>
                 {{item.name}}
             </div>
@@ -18,7 +19,7 @@
             </div>
         </ng-template>
     
-    <button (click)="goBack()">戻る</button>
+    <button (click)="goBack()">ホーム</button>
     <div *ngIf="isEditItem; then thenBlock_save else elseBlock_edit"></div>
     <ng-template #thenBlock_save>
         <button (click)="save()">保存</button>

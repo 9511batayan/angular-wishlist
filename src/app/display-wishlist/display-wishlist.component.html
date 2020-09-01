@@ -21,7 +21,7 @@
 <ul class="wishlist">
     <li *ngFor="let item of wishList">
         <a routerLink="/detail/{{item.id}}">
-            {{item.name}}
+            <span class="itenname">{{item.name}}</span>
         </a>
     <button class="delete" title="delete item"
     (click)="delete(item)">✕</button>

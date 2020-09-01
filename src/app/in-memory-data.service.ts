@@ -16,7 +16,8 @@ export class InMemoryDataService implements InMemoryDbService {
       {id:4, name: 'ゲーミングPC', url:'https://www.lenovo.com/jp/ja/jpad/desktops/legion-desktops/legion-t-series/Lenovo-Legion-T730-28ICO/p/90JF00HHJM?ef_id=EAIaIQobChMIxOie-5Ov6wIVSK6WCh35jALrEAQYAiABEgKNCfD_BwE:G:s&s_kwcid=AL!736!3!331691063463!!!u!294573402136!&cid=jp:sem:100005_TFSM1Q12YF&gclid=EAIaIQobChMIxOie-5Ov6wIVSK6WCh35jALrEAQYAiABEgKNCfD_BwE'},
       {id:5, name: 'fallguys', url:'https://store.steampowered.com/app/1097150/Fall_Guys_Ultimate_Knockout/'},
       {id:6, name: 'ザバス', url:'https://lohaco.jp/product/9596823/?int_id=search_keywordsearch'}
-  ];
+    ];
+/*    const wishlist = [];*/
     return {wishlist};
   }
 

@@ -4,6 +4,10 @@
 input {
   font-size: 1.0em;
 }
+p.url {
+  width: 30emx;
+  word-break: break-all;
+}
 
 button {
     background-color: #eee;

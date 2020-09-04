@@ -3,10 +3,7 @@
   margin: 0 0 2em 0;
   list-style-type: none;
   padding: 0;
-  width: 20em;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  white-space: nowrap;
+  width: 23.3em;
 }
 .wishlist li {
   position: relative;
@@ -30,7 +27,6 @@
   text-decoration: none;
   position: relative;
   display: block;
-  width: 250px;
 }
 
 .wishlist a:hover {
@@ -42,8 +38,10 @@
   margin-right: 10px;
 }
 
-.wishlit span {
-  
+span {
+  overflow: hidden;
+  text-overflow: clip;
+  white-space: nowrap;
 }
 
 button {
@@ -62,7 +60,7 @@ button:hover {
 
 button.delete {
   position: absolute;
-  left: 260px;
+  left: 24em;
   top: 4.5px;
   background-color: gray !important;
   color: white;

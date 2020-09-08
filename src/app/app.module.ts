@@ -11,6 +11,7 @@ import { AppComponent } from './app.component';
 
 import { DisplayWishlistComponent } from './display-wishlist/display-wishlist.component';
 import { ItemDetailComponent } from './item-detail/item-detail.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 @NgModule({
   declarations: [
@@ -28,7 +29,8 @@ import { ItemDetailComponent } from './item-detail/item-detail.component';
     // Remove it when a real server is ready to receive requests.
     HttpClientInMemoryWebApiModule.forRoot(
       InMemoryDataService, { dataEncapsulation: false}
-    )
+    ),
+    BrowserAnimationsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
